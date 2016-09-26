@@ -1,14 +1,15 @@
 ---
 - name: install and configure httpd
-  hosts: all
+#  hosts: all
 
   tasks:
 
   - name: Install httpd
-    yum:  name=httpd
+    yum:  pkg=httpd state=latest
   - name: Install a web page
-    src: templates/index.j2
-    dest: /var/www/html/index.html
+    template:
+      src: templates/index.j2
+      dest: /var/www/html/index.html
   - name: Open port
     firewalld: "port={{ item }}/tcp state=enabled zone=public permanent=yes immediate=true"
     with_items:
