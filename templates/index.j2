@@ -1,5 +1,4 @@
-# {{ ansible_managed }}
-{{ ansible_default_ipv4.address }}
+<!-- # {{ ansible_managed }} -->
 
 <!DOCTYPE html>
 <html>
@@ -9,5 +8,6 @@
 </head>
 <body>
   <h1>Host {{ inventory_hostname }}</h1>
+{{ ansible_default_ipv4.address }}
 </body>
 </html>
