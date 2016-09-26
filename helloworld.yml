@@ -6,11 +6,10 @@
 
   - name: Install httpd
     yum:  name=httpd
-
-  - name: install a web page
+  - name: Install a web page
     src: templates/index.j2
     dest: /var/www/html/index.html
-  - name: open port
+  - name: Open port
     firewalld: "port={{ item }}/tcp state=enabled zone=public permanent=yes immediate=true"
     with_items:
       - 80
