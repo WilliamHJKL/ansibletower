@@ -1,6 +1,6 @@
 ---
 - name: install and configure httpd
-#  hosts: all
+  hosts: all
 
   tasks:
 
