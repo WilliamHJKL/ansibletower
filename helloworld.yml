@@ -1,0 +1,8 @@
+---
+- name: install and configure httpd
+  hosts: all
+
+  tasks:
+
+  - name: Install httpd
+    yum:  name=httpd
