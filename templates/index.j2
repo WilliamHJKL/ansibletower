@@ -8,6 +8,13 @@
 </head>
 <body>
   <h1>Host {{ inventory_hostname }}</h1>
+  <br>
 {{ ansible_default_ipv4.address }}
+  <br>
+{{ ansible_domain }}
+  <br>
+{{ ansible_bios_date }}
+  <br>
+{{ ansible_bios_version }}
 </body>
 </html>
