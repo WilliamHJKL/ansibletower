@@ -23,7 +23,7 @@
       wait_for:
         host: "{{ newmachines.instances[0].public_ip }}"
         port: 22
-        timeout: 300
+        timeout: 600
       delegate_to: localhost
 
     - name: Add the machine to in memory inventory
