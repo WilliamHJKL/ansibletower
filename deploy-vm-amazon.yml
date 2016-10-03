@@ -7,12 +7,12 @@
       ec2:
         key_name: id_rsa-demo
         region: eu-west-1
-        zone: eu-west-1b
+        zone: eu-west-1a
         instance_type: t2.micro
         image: ami-e28d5691
         wait: yes
         group: sg-91afb9f6
-        vpc_subnet_id: vpc-e5d54081
+        vpc_subnet_id: subnet-bb3b4edf
         assign_public_ip: yes
         monitoring: no
         count: 1
