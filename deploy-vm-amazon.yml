@@ -1,0 +1,32 @@
+---
+- name: Setup an EC2 instance
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Create an EC2 machine
+      ec2:
+        key_name: id_rsa-demo
+        region: eu-west-1
+        zone: eu-west-1b
+        instance_type: t2.micro
+        image: ami-e28d5691
+        wait: yes
+        group: sg-91afb9f6
+        vpc_subnet_id: vpc-e5d54081
+        assign_public_ip: yes
+        monitoring: no
+        count: 1
+        state: present
+      register: newmachines
+
+    - name: Wait for SSH to start
+      wait_for:
+        host: "{{ newmachines.instances[0].public_ip }}"
+        port: 22
+        timeout: 300
+      delegate_to: localhost
+
+    - name: Add the machine to in memory inventory
+      add_host:
+        hostname: "{{ newmachines.instances[0].public_ip }}"
+        groups: amazon
