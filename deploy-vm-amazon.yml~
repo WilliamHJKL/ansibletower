@@ -5,7 +5,7 @@
   tasks:
     - name: Create an EC2 machine
       ec2:
-        key_name: id_rsa-AWS
+        key_name: id_rsa-demo
         region: eu-west-1
         zone: eu-west-1a
         instance_type: t2.micro
@@ -17,15 +17,13 @@
         monitoring: no
         count: 1
         state: present
-        instance_tags: 
-          vm_tag :wh-ec2
       register: newmachines
 
     - name: Wait for SSH to start
       wait_for:
         host: "{{ newmachines.instances[0].public_ip }}"
         port: 22
-        timeout: 600
+        timeout: 300
       delegate_to: localhost
 
     - name: Add the machine to in memory inventory

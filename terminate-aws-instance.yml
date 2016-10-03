@@ -1,12 +1,9 @@
 ---
-- name: terminate old instances
-  hosts: all
+- name: Terminate an EC2 instance
+  hosts: localhost
+  connection: local
   tasks:
-    - action: ec2_facts
     - name: terminating old instances
-      local_action:
         module: ec2
         state: 'absent'
-        region: eu-west-1
-        key_name: id_rsa-demo
         instance_ids: "{{ ansible_ec2_instance_id }}"
