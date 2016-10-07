@@ -1,4 +1,0 @@
----
-- name: Run soe compliance tasks.
-  hosts: all
-  include: roles/audit-cat1.yml
