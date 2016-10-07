@@ -4,21 +4,28 @@
 <html>
 <head>
   <title>Host {{ inventory_hostname }}</title>
-  <style>* { font-family: Helvetica, Arial, sans-serif }</style>
-  <meta http-equiv="refresh" content="15;
-  URL=https://secure.fr.vente-privee.com/authentication/portal/FR">
+  <style>* { font-family: Helvetica, Arial, sans-serif }
+div {
+   width: 300px;
+   border: 25px solid;
+   padding: 25px;
+   margin: 25px;
+     }
+</style>
 </head>
 <body>
   <h1>Host {{ inventory_hostname }}</h1>
   <br>
-{{ ansible_default_ipv4.address }}
+  IPv4 Address : {{ ansible_default_ipv4.address }}
   <br>
-{{ ansible_domain }}
+  Domain Name : {{ ansible_domain }}
   <br>
-{{ ansible_bios_date }}
-  <br>
-{{ ansible_bios_version }}
-  <br>
-Clé publique : {{ ansible_ssh_host_key_rsa_public }}
+  <div>
+  Date : {{ ansible_date_time.date }}
+  Heure UTC  : {{ ansible_date_time.time }}
+  </div>
+  <div>
+  Clé publique : {{ ansible_ssh_host_key_rsa_public }}
+  </div>
 </body>
 </html>
