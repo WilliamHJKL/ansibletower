@@ -1,2 +1,4 @@
-- name: Run CAT I audits
+---
+- name: Run soe compliance tasks.
+  hosts: all
   include: roles/audit-cat1.yml
