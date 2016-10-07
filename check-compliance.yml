@@ -1,2 +1,2 @@
 - name: Run CAT I audits
-  include: audit-cat1.yml
+  include: roles/audit-cat1.yml
