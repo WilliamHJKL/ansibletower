@@ -6,7 +6,6 @@
   <title>Host {{ inventory_hostname }}</title>
   <style>* { font-family: Helvetica, Arial, sans-serif }
 div {
-   width: 300px;
    border: 25px solid;
    padding: 25px;
    margin: 25px;
@@ -20,6 +19,10 @@ div {
   <br>
   Domain Name : {{ ansible_domain }}
   <br>
+  <div>
+  Date : {{ ansible_date_time.date }}
+  Heure UTC  : {{ ansible_date_time.time }}
+  </div>
   <div>
   Clé publique : {{ ansible_ssh_host_key_rsa_public }}
   </div>
