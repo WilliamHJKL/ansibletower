@@ -17,8 +17,6 @@
         monitoring: no
         count: 1
         state: present
-        instance_tags: 
-          vm_tag :wh-ec2
       register: newmachines
 
     - name: Wait for SSH to start
